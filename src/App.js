@@ -36,7 +36,7 @@ function App() {
         </fieldset>
         <button type="submit">Add to List</button>
       </form>
-
+      <br />
       {shoppingItems.map((shoppingItem) => (
         <ShoppingItem title={shoppingItem.title} isDone={shoppingItem.isDone} />
       ))}
