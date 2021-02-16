@@ -1,8 +1,8 @@
+import { useState } from "react";
 import Headline from "./Headline";
-import ShoppingItem from "./ShoppingItem";
+import ShoppingList from "./ShoppingList";
 import "./App.css";
 import Form from "./Form";
-import { useState } from "react";
 
 function App() {
   const [shoppingItems, setShoppingItems] = useState([]);
@@ -12,14 +12,26 @@ function App() {
     setShoppingItems([...shoppingItems, newShoppingItem]);
   }
 
+  function toggleCheckbox(indexToToggle) {
+    console.log(indexToToggle);
+
+    const itemToToggle = shoppingItems.find(
+      (item, index) => index === indexToToggle
+    );
+    itemToToggle.isDone = !itemToToggle.isDone;
+
+    const firstHalf = shoppingItems.slice(0, indexToToggle);
+
+    const secondHalf = shoppingItems.slice(indexToToggle + 1);
+    setShoppingItems([...firstHalf, itemToToggle, ...secondHalf]);
+  }
+
   return (
     <div className="App">
       <Headline name="Harrys" />
       <Form onCreateShoppingItem={addShoppingItem} />
       <br />
-      {shoppingItems.map((shoppingItem) => (
-        <ShoppingItem title={shoppingItem.title} isDone={shoppingItem.isDone} />
-      ))}
+      <ShoppingList items={shoppingItems} onToggleItem={toggleCheckbox} />
     </div>
   );
 }
