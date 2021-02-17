@@ -1,6 +1,10 @@
 import ShoppingItem from "./ShoppingItem";
 
-export default function ShoppingList({ items = [], onToggleItem }) {
+export default function ShoppingList({
+  items = [],
+  onToggleItem,
+  onDeleteItem,
+}) {
   return (
     <section>
       {items.map((shoppingItem, index) => (
@@ -8,6 +12,7 @@ export default function ShoppingList({ items = [], onToggleItem }) {
           title={shoppingItem.title}
           isDone={shoppingItem.isDone}
           onToggleItem={() => onToggleItem(index)}
+          onDeleteItem={() => onDeleteItem(index)}
         />
       ))}
     </section>

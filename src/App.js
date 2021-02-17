@@ -25,12 +25,26 @@ function App() {
     setShoppingItems([...firstHalf, itemToToggle, ...secondHalf]);
   }
 
+  function deleteShoppingItem(indexToDelete) {
+    const allRemainingItems = shoppingItems.filter((item, index) => {
+      if (index === indexToDelete) {
+      } else {
+        return item;
+      }
+    });
+    setShoppingItems(allRemainingItems);
+  }
+
   return (
     <div className="App">
       <Headline name="Harrys" />
       <Form onCreateShoppingItem={addShoppingItem} />
       <br />
-      <ShoppingList items={shoppingItems} onToggleItem={toggleCheckbox} />
+      <ShoppingList
+        items={shoppingItems}
+        onToggleItem={toggleCheckbox}
+        onDeleteItem={deleteShoppingItem}
+      />
     </div>
   );
 }
