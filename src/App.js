@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Headline from "./Headline";
 import ShoppingList from "./ShoppingList";
-import "./App.css";
 import Form from "./Form";
 
 function App() {

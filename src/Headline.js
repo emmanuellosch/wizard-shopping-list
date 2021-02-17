@@ -1,5 +1,10 @@
-import "./Headline.css";
+import styled from "styled-components";
 
 export default function Headline({ name }) {
-  return <h1 className="Headline">{name}' Shopping List</h1>;
+  return <H1>{name}'s Shopping List</H1>;
 }
+
+const H1 = styled.h1`
+  color: #b31b06;
+  font-size: 24px;
+`;
