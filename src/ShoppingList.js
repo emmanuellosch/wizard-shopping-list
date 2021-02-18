@@ -7,12 +7,13 @@ export default function ShoppingList({
 }) {
   return (
     <section>
-      {items.map((shoppingItem, index) => (
+      {items.map(({ title, isDone, id }) => (
         <ShoppingItem
-          title={shoppingItem.title}
-          isDone={shoppingItem.isDone}
-          onToggleItem={() => onToggleItem(index)}
-          onDeleteItem={() => onDeleteItem(index)}
+          key={id}
+          title={title}
+          isDone={isDone}
+          onToggleItem={() => onToggleItem(id)}
+          onDeleteItem={() => onDeleteItem(id)}
         />
       ))}
     </section>

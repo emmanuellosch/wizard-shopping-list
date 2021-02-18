@@ -9,7 +9,7 @@ export default function ShoppingItem({
   return (
     <section>
       <label>
-        <input type="checkbox" checked={isDone} onChange={onToggleItem} />
+        <BigCheckbox type="checkbox" checked={isDone} onChange={onToggleItem} />
         {title}
 
         <DeleteIcon onClick={onDeleteItem}> &times;</DeleteIcon>
@@ -17,6 +17,12 @@ export default function ShoppingItem({
     </section>
   );
 }
+
+const BigCheckbox = styled.input`
+  margin-top: 0.5rem;
+  margin-right: 0.7rem;
+  transform: state;
+`;
 
 const DeleteIcon = styled.span`
   color: tomato;

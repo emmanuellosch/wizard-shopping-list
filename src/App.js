@@ -1,37 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
+import loadFromLocal from "./lib/loadFromLocal";
+import saveToLocal from "./lib/saveToLocal";
 import Headline from "./Headline";
 import ShoppingList from "./ShoppingList";
 import Form from "./Form";
 
 function App() {
-  const [shoppingItems, setShoppingItems] = useState([]);
+  const LOCAL_STORAGE_KEY = "hogwartsShoppingList";
+  const [shoppingItems, setShoppingItems] = useState(
+    loadFromLocal(LOCAL_STORAGE_KEY) ?? []
+  );
+
+  useEffect(() => {
+    saveToLocal(LOCAL_STORAGE_KEY, shoppingItems);
+  }, [shoppingItems]);
 
   function addShoppingItem(title) {
-    const newShoppingItem = { title: title, isDone: false };
+    const newShoppingItem = { title: title, isDone: false, id: uuidv4() };
+    console.log(newShoppingItem);
     setShoppingItems([...shoppingItems, newShoppingItem]);
   }
 
-  function toggleCheckbox(indexToToggle) {
-    console.log(indexToToggle);
-
-    const itemToToggle = shoppingItems.find(
-      (item, index) => index === indexToToggle
-    );
-    itemToToggle.isDone = !itemToToggle.isDone;
-
-    const firstHalf = shoppingItems.slice(0, indexToToggle);
-
-    const secondHalf = shoppingItems.slice(indexToToggle + 1);
-    setShoppingItems([...firstHalf, itemToToggle, ...secondHalf]);
+  function toggleCheckbox(idToToggle) {
+    const newItems = shoppingItems.map((item) => {
+      if (item.id === idToToggle) {
+        item.isDone = !item.isDone;
+      }
+      return item;
+    });
+    setShoppingItems(newItems);
   }
 
-  function deleteShoppingItem(indexToDelete) {
-    const allRemainingItems = shoppingItems.filter((item, index) => {
-      if (index === indexToDelete) {
-      } else {
-        return item;
-      }
-    });
+  function deleteShoppingItem(shoppingItemId) {
+    const allRemainingItems = shoppingItems.filter(
+      (item) => item.id !== shoppingItemId
+    );
     setShoppingItems(allRemainingItems);
   }
 
