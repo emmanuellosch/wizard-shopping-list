@@ -6,7 +6,7 @@ export default function Form({ onCreateShoppingItem }) {
     event.preventDefault();
     const form = event.target;
     const input = form.title;
-    onCreateShoppingItem(input.value);
+    if (input.value.length >= 2) onCreateShoppingItem(input.value);
     form.reset();
     input.focus();
   }

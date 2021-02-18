@@ -13,6 +13,11 @@ export default createGlobalStyle`
     flex-direction: column;
     align-items: center;
     background: url(${hogwartsexpress});
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
   }
   
   fieldset {
