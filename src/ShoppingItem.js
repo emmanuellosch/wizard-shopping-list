@@ -21,11 +21,10 @@ export default function ShoppingItem({
 const BigCheckbox = styled.input`
   margin-top: 0.5rem;
   margin-right: 0.7rem;
-  transform: state;
 `;
 
 const DeleteIcon = styled.span`
   color: tomato;
-  padding-left: 1rem;
+  padding-left: 10rem;
   cursor: pointer;
 `;

@@ -23,4 +23,9 @@ export default createGlobalStyle`
   fieldset {
     margin: 20px 0;
   }
+
+  label {
+    color: white; 
+  }
+
 `;
