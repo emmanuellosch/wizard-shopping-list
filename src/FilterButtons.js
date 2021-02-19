@@ -1,22 +1,25 @@
 import styled from "styled-components";
 
-export default function ShowAndOpenButtons() {
+export default function FilterButtons() {
   return (
-    <section>
-      <Button3>Still open</Button3>
+    <Section>
+      <Button3>Still have to buy</Button3>
 
       <Button4>Show all</Button4>
-    </section>
+    </Section>
   );
 }
+
+const Section = styled.section`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const Button3 = styled.button`
   background-color: #b31b06;
   color: white;
   border: none;
   border-radius: 40px;
-  padding: 0.4rem, 0.8rem;
-  margin: 1rem 0;
 `;
 
 const Button4 = styled.button`
@@ -24,5 +27,4 @@ const Button4 = styled.button`
   color: white;
   border: none;
   border-radius: 40px;
-  width: fit-content;
 `;

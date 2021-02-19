@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import ShowAndOpenButtons from "./ButtonsShowAllAndOpen";
+import FilterButtons from "./FilterButtons";
 
 export default function Form({ onCreateShoppingItem }) {
   function handleSubmit(event) {
@@ -17,7 +17,7 @@ export default function Form({ onCreateShoppingItem }) {
       <h3>Add to your Trolley</h3>
       <input name="title" type="text" placeholder="What else do you need?" />
       <Button2>Add to List</Button2>
-      <ShowAndOpenButtons />
+      <FilterButtons />
     </Form2>
   );
 }

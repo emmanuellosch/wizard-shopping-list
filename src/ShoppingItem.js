@@ -25,6 +25,6 @@ const BigCheckbox = styled.input`
 
 const DeleteIcon = styled.span`
   color: tomato;
-  padding-left: 10rem;
+  margin-left: 2rem;
   cursor: pointer;
 `;
