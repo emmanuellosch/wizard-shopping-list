@@ -14,23 +14,27 @@ function App() {
     loadFromLocal(LOCAL_STORAGE_KEY) ?? []
   );
 
-  /*
+  /* Filter useState
+
   const [openItems, setOpenItems] = useState(
     loadFromLocal(LOCAL_STORAGE_KEY) ?? []
   );
+
   */
 
   useEffect(() => {
     saveToLocal(LOCAL_STORAGE_KEY, shoppingItems);
   }, [shoppingItems]);
 
-  /*
+  /* Function für den Filter Button alle offenen Items
+
   function filterOpenItems() {
     const allRemainOpenItemsOnly = openItems.filter(
       (item) => item.isDone !== false
     );
     setOpenItems(allRemainOpenItemsOnly);
   }
+
   */
 
   function addShoppingItem(title) {
